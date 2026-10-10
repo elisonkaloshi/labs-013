@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Profile {{ user_id }}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main class="card">
+    <a class="back" href="{{ url_for('index') }}">Back</a>
+    <h1>{{ profile.name }}</h1>
+    <p class="subtitle">User ID {{ user_id }}</p>
+    <dl>
+      <dt>Role</dt>
+      <dd>{{ profile.role }}</dd>
+      <dt>Email</dt>
+      <dd>{{ profile.email }}</dd>
+      <dt>Note</dt>
+      <dd>{{ profile.note }}</dd>
+    </dl>
+    {% if repeated %}
+    <p class="warning">Duplicate user_id parameters detected.</p>
+    {% endif %}
+  </main>
+</body>
+</html>
